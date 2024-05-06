@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import handlebars from 'handlebars';
 import { setting_data } from './start.js';
 
-export default function file_output(stock_code: string, file_index: number, datas: setting_data) {
+export default function file_output(stock_code: string, ita_keta_id, file_index: number, datas: setting_data) {
 
 
   //ファイル読み込み
@@ -19,7 +19,8 @@ export default function file_output(stock_code: string, file_index: number, data
     labels: datas.label,
     price: datas.price,
     next_file_index: file_index + 1,
-    jikan: datas.time
+    jikan: datas.time,
+    ita_keta_id: ita_keta_id
   };
   const html = template(data);
 
@@ -42,7 +43,7 @@ function template_text(): string {
     　<title>グラフ</title> 
     </head>
     <body>
-      <h1>{{stock_code}} {{jikan}}</h1>
+      <h1>{{stock_code}} {{ita_keta_id}} {{jikan}}</h1>
       <h1><a href="output_{{next_file_index}}.html">次へ</a></h1>
       <canvas id="myLineChart"></canvas>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>

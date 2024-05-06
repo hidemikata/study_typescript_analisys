@@ -30,7 +30,7 @@ for (const item of stock_codes) {
 
     set_data = create_setting_data(data);
 
-    file_output(code, file_index++, set_data);
+    file_output(code, ita_keta_id, file_index++, set_data);
 
 }
 
