@@ -37,8 +37,8 @@ for (const item of stock_codes) {
 process.exit();
 
 function create_setting_data(data: any): setting_data {
-    let index_arr = [];
-    let price_arr = [];
+    let index_arr: string[] = [];
+    let price_arr: number[] = [];
     let max = 0;
     let min = 9999999;
 
